@@ -1,5 +1,6 @@
 import logo from './assets/investment-calculator-logo.png';
 import { Header } from './components/Header/Header';
+import { Button } from './components/UI/ButtonSubmit/Button';
 
 function App() {
   const calculateHandler = (userInput) => {
@@ -57,12 +58,10 @@ function App() {
           </p>
         </div>
         <p className='actions'>
-          <button type='reset' className='buttonAlt'>
-            Reset
-          </button>
-          <button type='submit' className='button'>
+          <Button typeParam='reset'>Reset</Button>
+          <Button primary typeParam='submit'>
             Calculate
-          </button>
+          </Button>
         </p>
       </form>
 
