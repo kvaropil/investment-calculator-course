@@ -16,11 +16,11 @@ const StyledHeader = styled.header`
   }
 `;
 
-export const Header = ({ src, text }) => {
+export const Header = ({ src, children }) => {
   return (
     <StyledHeader>
       <img src={src} alt='logo' />
-      <h1>{text}</h1>
+      <h1>{children}</h1>
     </StyledHeader>
   );
 };
