@@ -3,6 +3,7 @@ import logo from './assets/investment-calculator-logo.png';
 import { Header } from './components/Header/Header';
 import { Button } from './components/UI/ButtonSubmit/Button';
 import { InputGroup } from './components/InputForm/InputGroup/InputGroup';
+import { Actions } from './components/Actions/Actions';
 
 function App() {
   const calculateHandler = (userInput) => {
@@ -45,12 +46,12 @@ function App() {
 
       <form className='form'>
         <InputGroup labels={labels} />
-        <p className='actions'>
+        <Actions>
           <Button typeParam='reset'>Reset</Button>
           <Button primary typeParam='submit'>
             Calculate
           </Button>
-        </p>
+        </Actions>
       </form>
 
       {/* Todo: Show below table conditionally (only once result data is available) */}

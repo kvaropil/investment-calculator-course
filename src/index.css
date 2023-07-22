@@ -22,12 +22,6 @@ body {
   background: linear-gradient(180deg, #307e6c, #2b996d);
 }
 
-.actions {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
 .result {
   max-width: 50rem;
   margin: 2rem auto;
