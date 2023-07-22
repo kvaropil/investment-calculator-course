@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div>
-      <Header text='Investment Calculator' src={logo} />
+      <Header src={logo}>Investment Calculator</Header>
 
       <InputForm>
         <InputGroup labels={labels} />
