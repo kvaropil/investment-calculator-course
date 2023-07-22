@@ -4,6 +4,7 @@ import { Header } from './components/Header/Header';
 import { Button } from './components/UI/ButtonSubmit/Button';
 import { InputGroup } from './components/InputForm/InputGroup/InputGroup';
 import { Actions } from './components/Actions/Actions';
+import { InputForm } from './components/InputForm/InputForm';
 
 function App() {
   const calculateHandler = (userInput) => {
@@ -44,7 +45,7 @@ function App() {
     <div>
       <Header text='Investment Calculator' src={logo} />
 
-      <form className='form'>
+      <InputForm>
         <InputGroup labels={labels} />
         <Actions>
           <Button typeParam='reset'>Reset</Button>
@@ -52,7 +53,7 @@ function App() {
             Calculate
           </Button>
         </Actions>
-      </form>
+      </InputForm>
 
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
