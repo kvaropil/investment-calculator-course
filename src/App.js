@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import logo from './assets/investment-calculator-logo.png';
 import { Header } from './components/Header/Header';
 import { Button } from './components/UI/ButtonSubmit/Button';
+import { InputGroup } from './components/InputForm/InputGroup/InputGroup';
 
 function App() {
   const calculateHandler = (userInput) => {
@@ -30,33 +32,19 @@ function App() {
     // do something with yearlyData ...
   };
 
+  const labels = [
+    'Current Savings ($)',
+    'Yearly Savings ($)',
+    'Expected Interest (%, per year)',
+    'Investment Duration (years)',
+  ];
+
   return (
     <div>
       <Header text='Investment Calculator' src={logo} />
 
       <form className='form'>
-        <div className='input-group'>
-          <p>
-            <label htmlFor='current-savings'>Current Savings ($)</label>
-            <input type='number' id='current-savings' />
-          </p>
-          <p>
-            <label htmlFor='yearly-contribution'>Yearly Savings ($)</label>
-            <input type='number' id='yearly-contribution' />
-          </p>
-        </div>
-        <div className='input-group'>
-          <p>
-            <label htmlFor='expected-return'>
-              Expected Interest (%, per year)
-            </label>
-            <input type='number' id='expected-return' />
-          </p>
-          <p>
-            <label htmlFor='duration'>Investment Duration (years)</label>
-            <input type='number' id='duration' />
-          </p>
-        </div>
+        <InputGroup labels={labels} />
         <p className='actions'>
           <Button typeParam='reset'>Reset</Button>
           <Button primary typeParam='submit'>
