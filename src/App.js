@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import logo from './assets/investment-calculator-logo.png';
 import { Header } from './components/Header/Header';
 import { Button } from './components/UI/Button/Button';
