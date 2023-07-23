@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import logo from './assets/investment-calculator-logo.png';
 import { Header } from './components/Header/Header';
 import { Button } from './components/UI/Button/Button';
@@ -7,6 +8,13 @@ import { InputForm } from './components/InputForm/InputForm';
 import { InvestmentTable } from './components/InvestmentTable/InvestmentTable';
 
 function App() {
+  const [formState, setFormState] = useState({
+    'Current Savings ($)': '',
+    'Yearly Savings ($)': '',
+    'Expected Interest (%, per year)': '',
+    'Investment Duration (years)': '',
+  });
+
   const calculateHandler = (userInput) => {
     // Should be triggered when form is submitted
     // You might not directly want to bind it to the submit event on the form though...
@@ -65,12 +73,23 @@ function App() {
     },
   ];
 
+  const handleInputChange = (label, value) => {
+    setFormState((prevState) => ({
+      ...prevState,
+      [label]: value,
+    }));
+  };
+
   return (
     <div>
       <Header src={logo}>Investment Calculator</Header>
 
       <InputForm>
-        <InputGroup labels={labels} />
+        <InputGroup
+          labels={labels}
+          onInputChange={handleInputChange}
+          formState={formState}
+        />
         <Actions>
           <Button typeParam='reset'>Reset</Button>
           <Button primary typeParam='submit'>

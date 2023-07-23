@@ -22,7 +22,7 @@ const chunkArray = (arr, size) => {
   return chunkedArr;
 };
 
-export const InputGroup = ({ labels }) => {
+export const InputGroup = ({ labels, onInputChange, formState }) => {
   // Divide the labels array into chunks of two items each
   const chunkedLabels = chunkArray(labels, 2);
 
@@ -31,7 +31,12 @@ export const InputGroup = ({ labels }) => {
       {chunkedLabels.map((rowLabels, rowIndex) => (
         <RowWrapper key={rowIndex}>
           {rowLabels.map((label, index) => (
-            <InputGroupItem label={label} key={index} />
+            <InputGroupItem
+              label={label}
+              key={index}
+              value={formState[label]}
+              onInputChange={onInputChange}
+            />
           ))}
         </RowWrapper>
       ))}

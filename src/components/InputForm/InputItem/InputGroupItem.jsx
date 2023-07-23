@@ -19,13 +19,19 @@ const StyledInput = styled.input`
   font-size: 1rem;
 `;
 
-export const InputGroupItem = ({ label }) => {
+export const InputGroupItem = ({ label, onInputChange, value }) => {
+  const handleChange = (event) => {
+    onInputChange(label, event.target.value);
+  };
+
   return (
     <p>
       <StyledLabel>{label}</StyledLabel>
       <StyledInput
         type='number'
         data-test-id={`data-test-${label.split(' ')[0]}-input`}
+        value={value}
+        onChange={handleChange}
       />
     </p>
   );
