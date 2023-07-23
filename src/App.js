@@ -1,4 +1,10 @@
 import logo from './assets/investment-calculator-logo.png';
+import { Header } from './components/Header/Header';
+import { Button } from './components/UI/Button/Button';
+import { InputGroup } from './components/InputForm/InputGroup/InputGroup';
+import { Actions } from './components/Actions/Actions';
+import { InputForm } from './components/InputForm/InputForm';
+import { InvestmentTable } from './components/InvestmentTable/InvestmentTable';
 
 function App() {
   const calculateHandler = (userInput) => {
@@ -28,69 +34,52 @@ function App() {
     // do something with yearlyData ...
   };
 
+  const labels = [
+    'Current Savings ($)',
+    'Yearly Savings ($)',
+    'Expected Interest (%, per year)',
+    'Investment Duration (years)',
+  ];
+
+  const investments = [
+    {
+      year: 2022,
+      totalSavings: 9000,
+      interestYear: 0.04,
+      interestTotal: 0.19,
+      investedCapital: 18000,
+    },
+    {
+      year: 2022,
+      totalSavings: 5000,
+      interestYear: 0.03,
+      interestTotal: 0.1,
+      investedCapital: 2000,
+    },
+    {
+      year: 2023,
+      totalSavings: 10000,
+      interestYear: 0.05,
+      interestTotal: 0.2,
+      investedCapital: 20000,
+    },
+  ];
+
   return (
     <div>
-      <header className="header">
-        <img src={logo} alt="logo" />
-        <h1>Investment Calculator</h1>
-      </header>
+      <Header src={logo}>Investment Calculator</Header>
 
-      <form className="form">
-        <div className="input-group">
-          <p>
-            <label htmlFor="current-savings">Current Savings ($)</label>
-            <input type="number" id="current-savings" />
-          </p>
-          <p>
-            <label htmlFor="yearly-contribution">Yearly Savings ($)</label>
-            <input type="number" id="yearly-contribution" />
-          </p>
-        </div>
-        <div className="input-group">
-          <p>
-            <label htmlFor="expected-return">
-              Expected Interest (%, per year)
-            </label>
-            <input type="number" id="expected-return" />
-          </p>
-          <p>
-            <label htmlFor="duration">Investment Duration (years)</label>
-            <input type="number" id="duration" />
-          </p>
-        </div>
-        <p className="actions">
-          <button type="reset" className="buttonAlt">
-            Reset
-          </button>
-          <button type="submit" className="button">
+      <InputForm>
+        <InputGroup labels={labels} />
+        <Actions>
+          <Button typeParam='reset'>Reset</Button>
+          <Button primary typeParam='submit'>
             Calculate
-          </button>
-        </p>
-      </form>
+          </Button>
+        </Actions>
+      </InputForm>
 
-      {/* Todo: Show below table conditionally (only once result data is available) */}
-      {/* Show fallback text if no data is available */}
-
-      <table className="result">
-        <thead>
-          <tr>
-            <th>Year</th>
-            <th>Total Savings</th>
-            <th>Interest (Year)</th>
-            <th>Total Interest</th>
-            <th>Invested Capital</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>YEAR NUMBER</td>
-            <td>TOTAL SAVINGS END OF YEAR</td>
-            <td>INTEREST GAINED IN YEAR</td>
-            <td>TOTAL INTEREST GAINED</td>
-            <td>TOTAL INVESTED CAPITAL</td>
-          </tr>
-        </tbody>
-      </table>
+      <InvestmentTable investments={investments} />
     </div>
   );
 }
