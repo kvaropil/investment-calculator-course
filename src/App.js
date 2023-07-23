@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import logo from './assets/investment-calculator-logo.png';
 import { Header } from './components/Header/Header';
-import { Button } from './components/UI/ButtonSubmit/Button';
+import { Button } from './components/UI/Button/Button';
 import { InputGroup } from './components/InputForm/InputGroup/InputGroup';
 import { Actions } from './components/Actions/Actions';
 import { InputForm } from './components/InputForm/InputForm';
