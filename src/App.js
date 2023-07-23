@@ -5,6 +5,7 @@ import { Button } from './components/UI/ButtonSubmit/Button';
 import { InputGroup } from './components/InputForm/InputGroup/InputGroup';
 import { Actions } from './components/Actions/Actions';
 import { InputForm } from './components/InputForm/InputForm';
+import { InvestmentTable } from './components/InvestmentTable/InvestmentTable';
 
 function App() {
   const calculateHandler = (userInput) => {
@@ -41,6 +42,30 @@ function App() {
     'Investment Duration (years)',
   ];
 
+  const investments = [
+    {
+      year: 2022,
+      totalSavings: 9000,
+      interestYear: 0.04,
+      interestTotal: 0.19,
+      investedCapital: 18000,
+    },
+    {
+      year: 2022,
+      totalSavings: 5000,
+      interestYear: 0.03,
+      interestTotal: 0.1,
+      investedCapital: 2000,
+    },
+    {
+      year: 2023,
+      totalSavings: 10000,
+      interestYear: 0.05,
+      interestTotal: 0.2,
+      investedCapital: 20000,
+    },
+  ];
+
   return (
     <div>
       <Header src={logo}>Investment Calculator</Header>
@@ -55,29 +80,7 @@ function App() {
         </Actions>
       </InputForm>
 
-      {/* Todo: Show below table conditionally (only once result data is available) */}
-      {/* Show fallback text if no data is available */}
-
-      <table className='result'>
-        <thead>
-          <tr>
-            <th>Year</th>
-            <th>Total Savings</th>
-            <th>Interest (Year)</th>
-            <th>Total Interest</th>
-            <th>Invested Capital</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>YEAR NUMBER</td>
-            <td>TOTAL SAVINGS END OF YEAR</td>
-            <td>INTEREST GAINED IN YEAR</td>
-            <td>TOTAL INTEREST GAINED</td>
-            <td>TOTAL INVESTED CAPITAL</td>
-          </tr>
-        </tbody>
-      </table>
+      <InvestmentTable investments={investments} />
     </div>
   );
 }
